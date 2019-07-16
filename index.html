@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Trivia</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/javascript/app.js"> </script>
+
+</head>
+
+<body>
+   
+        <div class="jumbotron">
+                
+            <div class="text-center">
+                <div class="top-container">
+                    <h1 class="text-center">Totally Trivial Trivia!</h1>
+                    <p> Select the correct answer before time runs out!</p>
+                    <button type="button" class="btn button text-black btn-lg btn-block border mt-5"
+                        id="start">Start</button>
+                </div>
+
+                <div id="quiz">
+                <div id="timeRemaining"></div>
+                <div class="row">
+                    <div class="col-4 offset-4 border" id="time-box">
+                        <p class="text-center" id="time">30</p>
+                        <p class="text-center">Seconds Left</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10 offset-1" id="q-box">
+                        <p class="text-center my-4" id="question">Questions</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4 offset-4">
+                        <button type="button" class="a-box btn-sm btn-block answer" id="answer1">Answer One</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4 offset-4">
+                        <button type="button" class="a-box btn-sm btn-block answer" id="answer2">Answer Two</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4 offset-4">
+                        <button type="button" class="a-box btn-sm btn-block answer" id="answer3">Answer Three</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4 offset-4">
+                        <button type="button" class="a-box btn-sm btn-block answer" id="answer4">Answer Four</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4 offset-4">
+                        <button type="button" class="a-box btn-sm btn-block answer" id="answerDisplay">Correct Answer
+                        </button>
+                    </div>
+                </div>
+                <!-- <button id="submit">Submit!</button> -->
+            </div> <!-- to close div center-->
+        </div> <!-- to close jumbotrone-->
+
+        <div class="container content" id="gameOver">
+            <div class="row mt-5">
+                <div class="col my-5">
+                    <h2 class="text-center">GAME OVER!</h2>
+                    <div class="row mt-4">
+                        <div class="col-6 offset-3 border">
+                            <p class="mt-2 font-weight-bold text-center ggP">Correct Answers: <span
+                                    id="correctAnswer"></span></p>
+                            <p class="font-weight-bold text-center ggP">Incorrect Answers: <span
+                                    id="incorrectAnswer"></span></p>
+                            <p class="mb-0 font-weight-bold text-center ggP">Unanswered: <span id="unanswered"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-6 offset-3 mt-3">
+                            <button type="button" class="btn button btn-lg btn-block border" id="replay">REPLAY</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    </div><!-- to close quiz-->
+
+
+
+</body>
+
+</html>
