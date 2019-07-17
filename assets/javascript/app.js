@@ -165,7 +165,7 @@ function correctMessage() {
     $("answerDisplay").show();
     $("answerDisplay").text(correctAnswer);
     index++;
-    setTimeout(questionDisplay, 200);
+    setTimeout(questionDisplay, 2000);
     // resetGame();
 }
 
@@ -175,7 +175,7 @@ function unansweredMessage() {
     $("answerDisplay").show();
     $("answerDisplay").text(correctAnswer);
     index++;
-    setTimeout(questionDisplay, 200);
+    setTimeout(questionDisplay, 2000);
     resetGame();
 }
 
@@ -186,7 +186,7 @@ function incorrectMessage() {
     $("#correctAnswer").show();
     $("#correctAnswer").text(correctAnswer);
     index++;
-    setTimeout(questionDisplay, 200);
+    setTimeout(questionDisplay, 2000);
     // resetGame();
 }
 
