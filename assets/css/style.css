@@ -1,3 +1,26 @@
-.choice {
-    display: inline;
+html {
+    background-image: url("https://static1.squarespace.com/static/55cb65c5e4b0afcfe4363496/55ccb196e4b06614877477ff/5c33c20f352f53c443146265/1558622518262/trivia-night-background.jpg?format=2500w");
+  }
+
+.jumbotron {
+    background-color: #ffffeb;
+    font-family: 'Libre Baskerville', serif;
+}
+
+#start {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+
+    
+}
+#time-box {
+    margin-top: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    border-color: #ffffeb;
+    margin-bottom: 25px;
+}
+#question {
+    font-size: 25px;
 }

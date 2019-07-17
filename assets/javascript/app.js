@@ -7,7 +7,7 @@ var myQuestions = [
             c: 'Antananrivo',
             d: 'Havana',
         },
-        correctAnswer: 'c'
+        correctAnswer: 'Antananrivo'
     },
     {
         question: "Name of world's largest ocean?",
@@ -18,7 +18,7 @@ var myQuestions = [
             d: 'Arctic',
 
         },
-        correctAnswer: 'b'
+        correctAnswer: 'Pacific'
     },
 
     {
@@ -30,7 +30,7 @@ var myQuestions = [
             d: 'White',
 
         },
-        correctAnswer: 'c'
+        correctAnswer: 'Yellow'
     },
     {
         question: "What German city is famous for perfume it produces?",
@@ -41,7 +41,7 @@ var myQuestions = [
             d: 'Munich',
 
         },
-        correctAnswer: 'a'
+        correctAnswer: 'Cologne'
     },
     {
         question: "When did Second World War end?",
@@ -52,7 +52,7 @@ var myQuestions = [
             d: '1945',
 
         },
-        correctAnswer: 'd'
+        correctAnswer: '1945'
     }
 ];
 
@@ -67,11 +67,13 @@ var clockRunning = false;
 var intervalId;
 var index = 0;
 
-var currentQuestion = myQuestions[Math.floor(Math.random() * myQuestions.length)];
-console.log("current question:", currentQuestion);
 
-var currentCorrectAnswer = currentQuestion.correctAnswer;
-console.log("current correct Answer", currentQuestion.correctAnswer);
+
+// var currentQuestion = myQuestions[Math.floor(Math.random() * myQuestions.length)];
+console.log(myQuestions);
+
+// var currentCorrectAnswer = currentQuestion.correctAnswer;
+// console.log("current correct Answer", currentQuestion.correctAnswer);
 
 
 
@@ -121,9 +123,9 @@ function checkAnswer(){
    
     stop();
     let userAnswer = $(this).text();
-    // console.log(userAnswer);
-    // console.log(currentQuestion.correctAnswer);
-    if(userAnswer === currentCorrectAnswer){
+    
+   
+    if(userAnswer === myQuestions[index].correctAnswer){
         correct++
         correctMessage();
     }else{
@@ -142,16 +144,15 @@ function questionDisplay() {
     $("#answer3").show();
     $("#answer4").show();
     if (index < myQuestions.length) {
-        var currentQuestion = myQuestions[index];
-        $("#question").text(currentQuestion.question);
-        $("#answer1").text(currentQuestion.answers.a);
-        $("#answer2").text(currentQuestion.answers.b);
-        $("#answer3").text(currentQuestion.answers.c);
-        $("#answer4").text(currentQuestion.answers.d);
-       
-
+        var currentQuestions = myQuestions[index];
+        $("#question").text(currentQuestions.question);
+        $("#answer1").text(currentQuestions.answers.a);
+        $("#answer2").text(currentQuestions.answers.b);
+        $("#answer3").text(currentQuestions.answers.c);
+        $("#answer4").text(currentQuestions.answers.d);
     }
     else {
+        console.log('out of bound')
         gameOver();
     }
 }
@@ -162,39 +163,38 @@ function correctMessage() {
     $(".a-box").hide();
     $("#question").text("Yay! That's Correct!");
     $("answerDisplay").show();
-    $("answerDisplay").text(currentCorrectAnswer);
+    $("answerDisplay").text(correctAnswer);
     index++;
-    setTimeout(questionDisplay, 3000);
-    resetGame();
+    setTimeout(questionDisplay, 200);
+    // resetGame();
 }
-
-
-
 
 function unansweredMessage() {
     $(".a-box").hide();
     $("#question").text("Sorry!The time is up! Here's the correct answer!");
     $("answerDisplay").show();
-    $("answerDisplay").text(currentCorrectAnswer);
+    $("answerDisplay").text(correctAnswer);
     index++;
-    setTimeout(questionDisplay, 3000);
+    setTimeout(questionDisplay, 200);
     resetGame();
 }
 
 function incorrectMessage() {
+    var correctAnswer = myQuestions[index].correctAnswer;
     $(".a-box").hide();
-    $("#question").html("Wrong Answer! Correct Answer is: " + currentCorrectAnswer);
+    $("#question").html("Wrong Answer! Correct Answer is: " + correctAnswer);
     $("#correctAnswer").show();
-    $("#correctAnswer").text(currentCorrectAnswer);
+    $("#correctAnswer").text(correctAnswer);
     index++;
-    setTimeout(questionDisplay, 3000);
-    resetGame();
+    setTimeout(questionDisplay, 200);
+    // resetGame();
 }
 
 
 function gameOver() {
     stop();
-    $("#main-content").hide();
+    $(".a-box").hide();
+    $("#q-box").hide();
     $("#gameOver").show();
     $("#correctAnswer").text(correct);
     $("#incorrectAnswer").text(incorrect);
